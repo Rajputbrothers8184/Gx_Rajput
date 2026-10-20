@@ -613,98 +613,7 @@ for fname, body in UIS:
 
 
 # --------------------------------------------------------------------------
-# 6. VIDEO EDITING  (640 x 360) - cinematic frames
-# --------------------------------------------------------------------------
-def video(name, body, defs_extra=""):
-    d, b = base(640, 360, ORANGE)
-    d += grad("mg", BLUE, ORANGE) + grad("sky", "#0a1b3d", "#05070c", 0) + defs_extra
-    b += body
-    return svg(640, 360, b, d)
-
-
-def lbars(color="#000000", op=0.75):
-    return (f'<rect y="0" width="640" height="30" fill="{color}" fill-opacity="{op}"/>'
-            f'<rect y="330" width="640" height="30" fill="{color}" fill-opacity="{op}"/>')
-
-
-def playbtn():
-    return ('<g><circle cx="320" cy="180" r="46" fill="#05070c" fill-opacity="0.55" '
-            'stroke="#ffffff" stroke-opacity="0.65" stroke-width="2"/>'
-            '<path d="M306 158 L350 180 L306 202 Z" fill="#ffffff" fill-opacity="0.92"/></g>')
-
-
-def lowerthird(title, sub, x=46, y=286):
-    return (f'<rect x="{x - 16}" y="{y - 26}" width="4" height="44" fill="{ORANGE}"/>'
-            f'<rect x="{x - 8}" y="{y - 24}" width="300" height="42" fill="#05070c" fill-opacity="0.55"/>'
-            f'<text x="{x}" y="{y}" font-size="16" font-weight="bold" fill="#ffffff">{title}</text>'
-            f'<text x="{x}" y="{y + 16}" font-size="9" fill="{MUTED}" letter-spacing="3">{sub}</text>')
-
-
-VIDEOS = [
-    ("video-01.svg",
-     '<rect width="640" height="360" fill="url(#sky)"/>'
-     '<circle cx="470" cy="140" r="46" fill="' + ORANGE + '" fill-opacity="0.85"/>'
-     '<path d="M0 260 L120 190 L240 250 L360 170 L500 250 L640 200 V360 H0 Z" fill="#050a14"/>'
-     '<path d="M0 296 L140 236 L280 292 L420 226 L640 300 V360 H0 Z" fill="#020509"/>'
-     + lbars() + playbtn() + lowerthird("TRAVEL VLOG", "EP 04 • NORTHERN AREAS")),
-    ("video-02.svg",
-     '<rect width="640" height="360" fill="#120a12"/>'
-     + "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{c}" fill-opacity="{o}"/>'
-               for x, y, r, c, o in [(90, 90, 40, ORANGE, 0.5), (200, 150, 26, BLUE, 0.4),
-                                     (300, 70, 34, ORANGE, 0.35), (420, 140, 48, BLUE, 0.3),
-                                     (540, 80, 30, ORANGE, 0.45), (160, 250, 36, ORANGE, 0.3),
-                                     (380, 260, 42, BLUE, 0.28), (580, 240, 28, ORANGE, 0.4)])
-     + '<path d="M250 210 q22 -40 44 0 q22 -40 44 0 q-44 60 -88 0z" fill="' + ORANGE + '" '
-     'fill-opacity="0.85"/>'
-     + lbars() + playbtn() + lowerthird("WEDDING HIGHLIGHT", "CINEMATIC • 4K")),
-    ("video-03.svg",
-     '<rect width="640" height="360" fill="#05060c"/>'
-     + "".join(f'<rect x="{x}" y="0" width="{w}" height="360" fill="{c}" fill-opacity="{o}"/>'
-               for x, w, c, o in [(40, 3, BLUE, 0.5), (596, 3, ORANGE, 0.6), (120, 2, BLUE, 0.25),
-                                  (520, 2, ORANGE, 0.3)])
-     + '<text x="320" y="176" font-size="54" font-weight="bold" fill="#ffffff" text-anchor="middle">'
-     'CLUTCH MOMENT</text>'
-     '<text x="320" y="206" font-size="13" fill="' + ORANGE + '" letter-spacing="8" text-anchor="middle">'
-     'GAMING MONTAGE</text>'
-     + "".join(f'<rect x="{60 + i * 74}" y="248" width="56" height="3" fill="{c}" fill-opacity="{o}"/>'
-               for i, (c, o) in enumerate([(BLUE, 0.9), (ORANGE, 0.9), (BLUE, 0.7), (ORANGE, 0.7),
-                                           (BLUE, 0.5), (ORANGE, 0.5), (BLUE, 0.35)]))
-     + lbars() + playbtn()),
-    ("video-04.svg",
-     '<rect width="640" height="360" fill="#07080e"/>'
-     '<ellipse cx="320" cy="200" rx="180" ry="26" fill="' + BLUE + '" fill-opacity="0.25"/>'
-     '<path d="M250 258 h140 l10 -110 a80 80 0 0 0 -160 0 z" fill="url(#mg)"/>'
-     '<rect x="286" y="118" width="68" height="34" rx="6" fill="#0a0f19"/>'
-     '<ellipse cx="320" cy="258" rx="76" ry="10" fill="#000000" fill-opacity="0.6"/>'
-     + lbars() + playbtn() + lowerthird("PRODUCT COMMERCIAL", "30 SEC • STUDIO LIGHT")),
-    ("video-05.svg",
-     '<rect width="640" height="360" fill="#06070d"/>'
-     + "".join(f'<rect x="{52 + i * 26}" y="{180 - h / 2}" width="12" height="{h}" rx="6" '
-               f'fill="url(#mg)" fill-opacity="{0.5 + (i % 3) * 0.15}"/>'
-               for i, h in enumerate([40, 92, 62, 130, 84, 170, 110, 200, 130, 96, 168, 74, 140, 88,
-                                      54, 120, 70, 160, 96, 44]))
-     + '<text x="320" y="112" font-size="34" font-weight="bold" fill="#ffffff" text-anchor="middle">'
-     'OFFICIAL VIDEO</text>'
-     '<text x="320" y="136" font-size="11" fill="' + ORANGE + '" letter-spacing="6" text-anchor="middle">'
-     'COLOUR GRADED • PREMIERE PRO</text>'
-     + lbars() + playbtn()),
-    ("video-06.svg",
-     '<rect width="640" height="360" fill="#0a0e18"/>'
-     '<rect x="70" y="70" width="500" height="220" rx="8" fill="#101828"/>'
-     '<circle cx="200" cy="180" r="52" fill="#1a2540"/>'
-     '<path d="M148 260 q52 -70 104 0z" fill="#1a2540"/>'
-     '<circle cx="440" cy="160" r="40" fill="#16203a"/>'
-     '<path d="M400 260 q40 -60 80 0z" fill="#16203a"/>'
-     '<rect x="70" y="70" width="500" height="220" rx="8" fill="none" stroke="url(#mg)" stroke-width="2"/>'
-     + lbars() + playbtn() + lowerthird("INTERVIEW SERIES", "TWO CAM • MULTICAM EDIT")),
-]
-
-for fname, body in VIDEOS:
-    write(fname, video(fname, body))
-
-
-# --------------------------------------------------------------------------
-# 7. YOUTUBE THUMBNAILS (SVG fallbacks)  (640 x 360)
+# 6. YOUTUBE THUMBNAILS (SVG fallbacks) (SVG fallbacks)  (640 x 360)
 # --------------------------------------------------------------------------
 def thumb(name, body, defs_extra=""):
     d, b = base(640, 360, BLUE)
@@ -773,4 +682,4 @@ THUMBS = [
 for fname, body in THUMBS:
     write(fname, thumb(fname, body))
 
-print(f"Generated {len(LOGOS) + len(CARDS) + len(BANNERS) + len(PRINTS) + len(UIS) + len(VIDEOS) + len(THUMBS)} SVG designs -> {OUT}")
+print(f"Generated {len(LOGOS) + len(CARDS) + len(BANNERS) + len(PRINTS) + len(UIS) + len(THUMBS)} SVG designs -> {OUT}")

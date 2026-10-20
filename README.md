@@ -68,8 +68,8 @@ assets/img/profile.png      profile icon — man in a 3-piece suit
 assets/img/cover.jpg        hero cover art
 assets/img/og-image.jpg     social share preview (1200×630)
 assets/img/favicon.png      browser tab icon
-assets/img/work/*.jpg       photo-based samples (social posts, thumbnails)
-assets/svg/*.svg            41 hand-crafted vector samples (logos, cards, banners, print, UI, video)
+assets/img/work/*.jpg       photo-based samples (social posts, thumbnails, video frames)
+assets/svg/*.svg            31 hand-crafted vector samples (logos, cards, banners, print, UI, thumbnail)
 assets/Gx_Rajput.vcf        downloadable contact card
 tools/gen_sample_assets.py  regenerates the vector samples
 .github/workflows/pages.yml GitHub Pages deployment
