@@ -20,7 +20,10 @@ The deploy workflow is already in `.github/workflows/pages.yml`. To switch it on
 3. Done. Every push to `main` rebuilds and publishes the site at
    `https://rajputbrothers8184.github.io/Gx_Rajput/`
 
-To publish manually right now: **Actions → "Deploy Portfolio to GitHub Pages" → Run workflow**.
+To publish manually: **Actions → "Deploy Portfolio to GitHub Pages" → Run workflow**.
+
+> **Note:** GitHub Pages only deploys from the **default branch (`main`)** — pushes to other branches
+> build the site but the deploy job is skipped. Merge into `main` (pull request) to publish changes.
 
 ---
 
