@@ -3,3 +3,7 @@ Thumbs.db
 *.log
 node_modules/
 .env
+
+# Python test caches
+__pycache__/
+*.py[cod]

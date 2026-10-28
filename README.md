@@ -1,135 +1,61 @@
-# Gx_Rajput — Personal Portfolio Website
+# Gx_Rajput — Personal Portfolio
 
-Dark-theme (black / blue / orange) portfolio for **Noor Ul Hassan (Gx_Rajput)** — Graphics Designer,
-Video Editor and Full-Stack / App Developer from **Layyah, Punjab, Pakistan**.
+A responsive, static portfolio for **Noor Ul Hassan (Gx_Rajput)**, a graphic designer, video editor and web/app developer based in Layyah, Punjab, Pakistan.
 
-- **Live site:** https://rajputbrothers8184.github.io/Gx_Rajput/
-- **Repository:** https://github.com/Rajputbrothers8184/Gx_Rajput
+- Live site: <https://rajputbrothers8184.github.io/Gx_Rajput/>
+- Repository: <https://github.com/Rajputbrothers8184/Gx_Rajput>
+- Built with HTML, CSS and vanilla JavaScript. There is no build step or application backend.
 
-Built as a plain static site (HTML + CSS + vanilla JS) — no build step, no dependencies, loads fast and
-hosts free on GitHub Pages.
+## What's included
 
----
+- An editorial dark theme using the supplied palette: `#0B0B0D`, `#171719`, `#F5A623`, `#FFC247`, `#168BFF`, `#F5F5F5`, `#B8B8B8`, and `#34343A`.
+- The supplied photos in the hero and About section. They are optimized/cropped copies of the supplied images; the face has not been AI-edited.
+- **Seven portfolio concepts**, one each for Logo Design, Social Media, Thumbnails, Banners & Covers, Business Cards, Print & Packaging, and Web & App. Filters and a keyboard-accessible full-size viewer are included. Video editing is not a portfolio category; the existing video-editing skill and service remain available.
+- About, skills, existing packages and rates, process, social/contact links, a downloadable vCard, and a form that opens a pre-filled WhatsApp message.
+- Self-hosted Inter and Space Grotesk fonts, a responsive mobile menu, reduced-motion support, and social-sharing metadata.
 
-## 1. Go live (one-time, 1 minute)
+> **Portfolio samples:** The seven new images are AI-generated concept previews, not client projects. They are labelled as concepts on the site. Replace them with your own work before presenting them as actual completed projects.
 
-The deploy workflow is already in `.github/workflows/pages.yml`. To switch it on:
-
-1. Open **https://github.com/Rajputbrothers8184/Gx_Rajput/settings/pages**
-2. Under **Build and deployment → Source**, choose **GitHub Actions**
-3. Done. Every push to `main` rebuilds and publishes the site at
-   `https://rajputbrothers8184.github.io/Gx_Rajput/`
-
-To publish manually: **Actions → "Deploy Portfolio to GitHub Pages" → Run workflow**.
-
-> **Note:** GitHub Pages only deploys from the **default branch (`main`)** — pushes to other branches
-> build the site but the deploy job is skipped. Merge into `main` (pull request) to publish changes.
-
----
-
-## 2. What's inside
-
-| Section | Details |
-|---|---|
-| **Hero** | Profile icon (man in a 3-piece suit), name, roles, WhatsApp / Portfolio / Save-contact buttons, stats |
-| **About** | Who you are, the three skill stacks, tools, quick-facts card (name, location, experience, contacts) |
-| **Skills** | Percentage bars for Design (Photoshop, Illustrator, CorelDRAW, Canva), Video (Premiere Pro, CapCut, After Effects) and Development (HTML/CSS/JS, React, Node, Flutter, Python) + a note that you work **without Figma** |
-| **Portfolio** | **48 designs — 6 in each of 8 categories**, filterable, with a full-screen lightbox |
-| **Services** | 4 packages (Starter, Brand Kit, Video Pack, Development) + the printing-on-demand note |
-| **Process** | 4-step workflow |
-| **Contact** | WhatsApp, Instagram, Facebook, TikTok, GitHub, Email, Call, Location + a form that opens WhatsApp |
-| **Extras** | Sticky nav, mobile menu, floating WhatsApp button, back-to-top, scroll animations, SEO/OG tags, JSON-LD, downloadable vCard |
-
-### Portfolio categories (6 designs each)
-
-Logo Design · Social Media Posts · YouTube Thumbnails · Banners & Covers · Business Cards ·
-Print & Packaging · Video Editing · Web & App / Dev Projects
-
----
-
-## 3. Contact details wired into the site
-
-| Channel | Value |
-|---|---|
-| WhatsApp | **0311 0682944** → `+92 311 0682944` (`wa.me/923110682944`) |
-| Instagram | [@noor_ul8184](https://www.instagram.com/noor_ul8184/) |
-| Facebook | [noorulhassan8184](https://www.facebook.com/noorulhassan8184) |
-| TikTok | [@gx_rajput](https://www.tiktok.com/@gx_rajput) |
-| GitHub | [Rajputbrothers8184](https://github.com/Rajputbrothers8184) |
-| Email | n88908410@gmail.com |
-| Location | Layyah, Punjab, Pakistan |
-
----
-
-## 4. Project structure
-
-```
-index.html                  the whole site (all content lives here)
-css/style.css               theme: black / blue / orange
-js/main.js                  nav, filters, lightbox, animations, WhatsApp form
-assets/img/profile.png      profile icon — man in a 3-piece suit
-assets/img/cover.jpg        hero cover art
-assets/img/og-image.jpg     social share preview (1200×630)
-assets/img/favicon.png      browser tab icon
-assets/img/work/*.jpg       photo-based samples (social posts, thumbnails, video frames)
-assets/svg/*.svg            31 hand-crafted vector samples (logos, cards, banners, print, UI, thumbnail)
-assets/Gx_Rajput.vcf        downloadable contact card
-tools/gen_sample_assets.py  regenerates the vector samples
-.github/workflows/pages.yml GitHub Pages deployment
-```
-
----
-
-## 5. How to customise
-
-Everything is plain HTML — open `index.html` and edit:
-
-| What | Where |
-|---|---|
-| Name, tagline, bio | Hero section (`<section class="hero">`) |
-| **Stats (7+, 1200+, 600+, 24h)** | `.hero-stats` — ⚠️ set these to your real numbers |
-| Skills & percentages | `#skills` — change `data-w="95"` and the label |
-| **Package prices** | `#services` — ⚠️ starting rates, edit to your actual charges |
-| Portfolio items | `#portfolio` — each card is one `<article class="card" data-cat="…">` |
-| Colours | `:root` in `css/style.css` (`--blue`, `--orange`, `--bg`) |
-| Social links | Hero buttons, `#contact` cards, footer, and `js/main.js` (WhatsApp number) |
-
-### Adding / replacing a portfolio design
-
-1. Drop the image in `assets/img/work/` (or `assets/svg/` for vector work).
-2. Copy any `<article class="card">` block, change the `src`, title, description and `data-cat`.
-3. If you add a brand-new category, add a matching filter button:
-   `<button class="filter" data-f="newcat">New Category <small>6</small></button>`
-
-Valid `data-cat` values: `logo`, `social`, `thumb`, `banner`, `card`, `print`, `video`, `ui`.
-
-### The WhatsApp number appears in 5 places
-
-`index.html` (hero button ×2, contact cards, service buttons) and `js/main.js` (contact form).
-Search for `923110682944` to find them all.
-
----
-
-## 6. Printing note
-
-Printing is **on demand** and charged **separately** — that is stated in the About section and in the
-highlighted note under the pricing section. Design packages include print-ready digital files only.
-
----
-
-## 7. Run locally
+## Run locally
 
 ```bash
 python3 -m http.server 8080
-# open http://localhost:8080
+# Open http://localhost:8080
 ```
 
-Regenerate the vector sample designs after editing the generator:
+Run the dependency-free structural checks with:
 
 ```bash
-python3 tools/gen_sample_assets.py
+python3 -m unittest discover -s tests
 ```
 
----
+## Customize
 
-© Gx_Rajput — designed, edited and coded by Noor Ul Hassan, Layyah, Punjab, Pakistan.
+| Change | Location |
+|---|---|
+| Text, experience, skills, rates, services and contacts | `index.html` |
+| Palette and layout | CSS variables at the top of `css/style.css` |
+| Filters, preview viewer and WhatsApp form | `js/main.js` |
+| Hero and About photos | `assets/img/noor-portrait.webp`, `noor-about.webp`, `noor-studio.webp` |
+| Social share image | `assets/img/noor-og.jpg` |
+| Gallery images | `assets/img/work/selected-*.webp` |
+| Downloadable contact | `assets/Gx_Rajput.vcf` |
+
+For skill bars, update the visible percentage, the `data-w` value and the inline `--bar-width` value together (the inline value is a no-JavaScript fallback).
+
+### Replace a gallery concept
+
+1. Add your own image under `assets/img/work/`.
+2. Find the matching `<article class="card" data-cat="…">` in `index.html`. Update the image path and alt text, the accessible button label, title, description, and concept label as appropriate.
+3. Keep the filter's `data-f` value equal to the card's `data-cat` value. Update the gallery's counts if the number of samples changes.
+4. Update or remove the AI-concept disclosure once the displayed images have been replaced.
+
+The existing `tools/gen_sample_assets.py` and older images remain in the repository for reference; they are not used by the current gallery.
+
+## Contact and deployment
+
+The existing links use WhatsApp **+92 311 0682944**, email **n88908410@gmail.com**, Instagram **@noor_ul8184**, and the other social accounts listed in the page. Printing is on demand and charged separately. Review the displayed statistics, prices and availability before publishing.
+
+GitHub Pages configuration is in `.github/workflows/pages.yml`. To enable deployment, choose **GitHub Actions** under the repository's **Settings → Pages → Build and deployment**. Merge changes into the deployment branch when ready to publish.
+
+The bundled fonts are distributed under the SIL Open Font License; copies of their licenses are in `assets/fonts/`.
